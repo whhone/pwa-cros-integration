@@ -19,7 +19,7 @@ const CROS_FUNCTION_KEYS = [
 ];
 
 function isCrosSystemKey(event) {
-    return (event.altKey && ALT_EVENT_KEYS.includes(event.key))
+    return (event.altKey && !event.ctrlKey && ALT_EVENT_KEYS.includes(event.key))
         || (event.altKey && event.ctrlKey && ALT_CTRL_EVENT_KEYS.includes(event.key));
 }
 
