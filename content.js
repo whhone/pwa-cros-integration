@@ -18,9 +18,12 @@ const CROS_FUNCTION_KEYS = [
     "AudioVolumeUp"       // F10
 ];
 
-function isCrosSystemKey(event) {
-    return (event.altKey && !event.ctrlKey && ALT_EVENT_KEYS.includes(event.key))
-        || (event.altKey && event.ctrlKey && ALT_CTRL_EVENT_KEYS.includes(event.key));
+function isCrosAltKey(event) {
+    return event.altKey && !event.ctrlKey && ALT_EVENT_KEYS.includes(event.key);
+}
+
+function isCrosAltCtrlKey(event) {
+    return event.altKey && event.ctrlKey && ALT_CTRL_EVENT_KEYS.includes(event.key)
 }
 
 function isCrosFuncKey(event) {
@@ -33,10 +36,15 @@ function isDevelopModeKey(event) {
 
 console.log("CRD Extension is running");
 
+function isFullscreen() {
+    return document.fullscreenElement != null
+}
+
 // Prevent CRD / PWA from capturing system keys
 document.addEventListener('keydown', (event) => {
     if (isCrosFuncKey(event)
-        || isCrosSystemKey(event)
+        || (!isFullscreen() && isCrosAltKey(event))
+        || isCrosAltCtrlKey(event)
         || isDevelopModeKey(event)) {
         event.stopPropagation();
     }
