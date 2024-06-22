@@ -34,7 +34,7 @@ function isDevelopModeKey(event) {
     return event.ctrlKey && event.shiftKey && event.key === "I";
 }
 
-console.log("CRD Extension is running");
+console.log("'PWA on Chrome OS Integration' extension is running");
 
 function isFullscreen() {
     return document.fullscreenElement != null
