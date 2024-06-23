@@ -50,3 +50,18 @@ document.addEventListener('keydown', (event) => {
     }
     // console.log(event);
 }, true);
+
+function setMetaTag(name, content) {
+    let metaTag = document.querySelector(`meta[name="${name}"]`);
+    if (!metaTag) {
+        // Create a new meta tag if it doesn't exist
+        metaTag = document.createElement('meta');
+        metaTag.name = name;
+        document.head.appendChild(metaTag);
+    }
+
+    metaTag.content = content;
+}
+
+// Prefer darker title bar even in light theme.
+setMetaTag('theme-color', '#333333');
