@@ -1,10 +1,13 @@
+console.log("'PWA on Chrome OS Integration' extension is running");
+
 const ALT_EVENT_KEYS = [
-  '[', ']', '=', '-',
-  '1', '2', '3', '4', '5', '6', '7', '8', '9'
+  '[', ']', // split left and split right
+  '=', '-', // maximize and minimize
+  '1', '2', '3', '4', '5', '6', '7', '8', '9' // switch application
 ];
 
 const ALT_CTRL_EVENT_KEYS = [
-  '.', ','
+  '.', ','  // switching account for multiple sign-in
 ]
 
 const CROS_FUNCTION_KEYS = [
@@ -19,11 +22,13 @@ const CROS_FUNCTION_KEYS = [
 ];
 
 function isCrosAltKey(event) {
-  return event.altKey && !event.ctrlKey && ALT_EVENT_KEYS.includes(event.key);
+  return event.altKey && !event.ctrlKey
+    && !event.ctrlKey && ALT_EVENT_KEYS.includes(event.key);
 }
 
 function isCrosAltCtrlKey(event) {
-  return event.altKey && event.ctrlKey && ALT_CTRL_EVENT_KEYS.includes(event.key)
+  return event.altKey && event.ctrlKey
+    && ALT_CTRL_EVENT_KEYS.includes(event.key)
 }
 
 function isCrosFuncKey(event) {
@@ -33,8 +38,6 @@ function isCrosFuncKey(event) {
 function isDevelopModeKey(event) {
   return event.ctrlKey && event.shiftKey && event.key === "I";
 }
-
-console.log("'PWA on Chrome OS Integration' extension is running");
 
 function isFullscreen() {
   return document.fullscreenElement != null
