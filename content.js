@@ -46,6 +46,8 @@ function isFullscreen() {
 // Prevent CRD / PWA from capturing system keys
 document.addEventListener('keydown', (event) => {
   if (isCrosFuncKey(event)
+      // When fullscreen, allows an immersive experience.
+      // TODO: Make it a preference.
       || (!isFullscreen() && isCrosAltKey(event))
       || isCrosAltCtrlKey(event)
       || isDevelopModeKey(event)) {
