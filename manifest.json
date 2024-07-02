@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "PWA on Chrome OS Integration",
+    "name": "Better PWA Integration for Chrome OS",
     "version": "1.0",
     "content_scripts": [
         {
