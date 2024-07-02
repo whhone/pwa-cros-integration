@@ -1,13 +1,14 @@
 {
-    "manifest_version": 3,
-    "name": "Better PWA Integration for Chrome OS",
-    "version": "1.0",
-    "content_scripts": [
-        {
-            "js": ["content.js"],
-            "matches": [
-                "<all_urls>"
-            ]
-        }
-    ]
+  "manifest_version": 3,
+  "name": "Better PWA Integration for Chrome OS",
+  "version": "1.0",
+  "description": "When interacting with a PWA, you can still use the Chrome OS system keyboard shortcuts, like Alt+num to switch applications.",
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ]
 }
