@@ -1,0 +1,4 @@
+# ignore files for publishing
+*.crx
+*.pem
+*.zip
